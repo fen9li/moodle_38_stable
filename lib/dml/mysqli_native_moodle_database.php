@@ -456,9 +456,9 @@ class mysqli_native_moodle_database extends moodle_database {
         $rowformat = '';
         if (($engine === 'innodb' || $engine === 'xtradb') && strpos($collation, 'utf8mb4_') === 0) {
             if ($this->is_compressed_row_format_supported()) {
-                $rowformat = "ROW_FORMAT=Compressed";
-            } else {
                 $rowformat = "ROW_FORMAT=Dynamic";
+            } else {
+                $rowformat = "ROW_FORMAT=Compressed";
             }
         }
         return $rowformat;
